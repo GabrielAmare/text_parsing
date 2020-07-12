@@ -6,7 +6,7 @@ class SimpleLexer:
             -> 'word' matches any letter sequence
             -> 'number' matches any integer
             -> 'space' matches any other character
-        
+
         NB : This lexer have been optimized to read text character by character and do as less operations as possible.
              Doing so, it can tokenize fastly very long texts.
     """
