@@ -30,7 +30,7 @@ class SimpleLexer:
         """Return True if n (which is ord(char) is a digit)"""
         return 48 <= n <= 57
 
-    def __init__(self, text):
+    def __init__(self, text: (str, int)):
         self.text = text
 
     @property
@@ -45,30 +45,32 @@ class SimpleLexer:
         NO, WORD, NUMBER, SPACE = 0, 1, 2, 3
         type_ = NO
         content = ''
+        if isinstance(self.text, int):
+            yield self.text
+        else:
+            for index, char in enumerate(self.text):
+                n = ord(char)
+                chartype = LETTER if self.isLetter(n) else DIGIT if self.isDigit(n) else UNKNOWN
 
-        for index, char in enumerate(self.text):
-            n = ord(char)
-            chartype = LETTER if self.isLetter(n) else DIGIT if self.isDigit(n) else UNKNOWN
+                if type_ == WORD and chartype != LETTER:
+                    yield content
+                    content = ''
+                elif type_ == NUMBER and chartype != DIGIT:
+                    yield int(content)
+                    content = ''
+                elif type_ == SPACE and chartype != UNKNOWN:
+                    content = ''
+                if chartype == LETTER and type_ != WORD:
+                    type_ = WORD
+                elif chartype == DIGIT and type_ != NUMBER:
+                    type_ = NUMBER
+                elif chartype == UNKNOWN and type_ != SPACE:
+                    type_ = SPACE
 
-            if type_ == WORD and chartype != LETTER:
-                yield content
-                content = ''
-            elif type_ == NUMBER and chartype != DIGIT:
-                yield int(content)
-                content = ''
-            elif type_ == SPACE and chartype != UNKNOWN:
-                content = ''
-            if chartype == LETTER and type_ != WORD:
-                type_ = WORD
-            elif chartype == DIGIT and type_ != NUMBER:
-                type_ = NUMBER
-            elif chartype == UNKNOWN and type_ != SPACE:
-                type_ = SPACE
+                content += char
 
-            content += char
-
-        if content:
-            if type_ == WORD:
-                yield content
-            elif type_ == NUMBER:
-                yield int(content)
+            if content:
+                if type_ == WORD:
+                    yield content
+                elif type_ == NUMBER:
+                    yield int(content)
