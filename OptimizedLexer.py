@@ -104,7 +104,7 @@ if __name__ == '__main__':
         newline=[('!', '\n')],
         ponct=[('+', '.!?')]
     )
-    
+
     text = "hi I'm a sentence !\nFollowed by another on another line..."
 
     for token_type, token_content, start_index in lexer.tokenize(text):
