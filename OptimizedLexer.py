@@ -5,6 +5,22 @@ class Lexer:
         -> the format of the patterns is very simple but efficient
         -> be careful, the tokens can overlap each others
 
+        format of a pattern is as following :
+
+        the Lexer is defined by a dict map of pattern names to their definition
+
+        > pattern : is a list of sections
+
+        > section : is a tuple of 2 items : cardinality & charset
+
+        > cardinality : allows only 4 variants :
+            '!' means 1 char of the charset need to be matched
+            '?' means the same thing but is optional
+            '+' means 1 char or more
+            '*' means 0 char or more
+
+        > charset : is a string containing all the characters that the section can accept
+
         use case :
         >>> lexer = Lexer(
         >>>     word=[('+', Lexer.letters), ('?', "'")], # equivalent to the regex "[a-zA-ZéàèâêûîôäëïüöÿçùÄËÜÏÖÂÊÛÎÔ]+[']?"
