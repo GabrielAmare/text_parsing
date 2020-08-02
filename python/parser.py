@@ -56,22 +56,24 @@ parser = Parser([
 
     Rule("par|0|bloc", "LP", f"inside:{cls(13)}|<args>", "RP"),
 
-    EnumRule("<args>|enum", f"{cls(12)}", "COMA"),
+    EnumRule("<args>|enum", f"{cls(13)}", "COMA"),
 
     EnumRule("<vars>|enum", "var", "COMA"),
 
     EnumRule("<lines>|enum", "<stmt>", "NEWLINE"),
 
-    Rule(f";for|<stmt>|<head>", "KW_FOR", "<vars>", "KW_IN", f"{cls(12)}", "DDOT"),
-    Rule(f";while|<stmt>|<head>", "KW_WHILE", f"{cls(12)}", "DDOT"),
-    Rule(f";if|<stmt>|<head>", "KW_IF", f"{cls(12)}", "DDOT"),
-    Rule(f";elif|<stmt>|<head>", "KW_ELIF", f"{cls(12)}", "DDOT"),
+    Rule(f";for|<stmt>|<head>", "KW_FOR", "<vars>", "KW_IN", f"{cls(13)}", "DDOT"),
+    Rule(f";while|<stmt>|<head>", "KW_WHILE", f"{cls(13)}", "DDOT"),
+    Rule(f";if|<stmt>|<head>", "KW_IF", f"{cls(13)}", "DDOT"),
+    Rule(f";elif|<stmt>|<head>", "KW_ELIF", f"{cls(13)}", "DDOT"),
     Rule(f";else|<stmt>|<head>", "KW_ELSE", "DDOT"),
 
     Rule("__setid__|ope|<stmt>", "left:var", "EQUAL", "right:val"),
     Rule("__setattr__|<stmt>", "obj:val", "DOT", "key:var", "EQUAL", "val:val"),
 
-    OpeBlocRule("__call__|C|<stmt>", "LP", "RP", 0, f"{cls(12)}|<args>"),
+    OpeBlocRule("__call__|C|<stmt>", "LP", "RP", 0, f"{cls(13)}|<args>"),
+    Rule(f"__call__|C|<stmt>|ope|val|{cls(0)}", f"left:{cls(0)}", "LP", "RP"),
+
     OpeBlocRule("__getitem__|GI", "LB", "RB", 0, "<slice>"),
     OpeBlocRule("__getitem__|GS", "LB", "RB", 0, "val"),
     OpeRule("__getattr__|GA", "DOT", 0, "var"),

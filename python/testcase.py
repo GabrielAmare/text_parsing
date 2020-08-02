@@ -6,6 +6,7 @@ from text_parsing.python.lexer import lexer
 from text_parsing.python.parser import parser
 
 import os
+
 os.environ["PATH"] += os.pathsep + 'C:\\Program Files (x86)\\Graphviz-2.38\\bin'
 
 if __name__ == '__main__':

@@ -25,6 +25,7 @@ class Cte(Economizer):
         name = str(hex(id(self)))
         if isinstance(self.value, str):
             value = self.value.replace('\|', '\\\|').replace('|', '\|')
+            value = repr(value)[1:-1]
         else:
             value = self.value
 

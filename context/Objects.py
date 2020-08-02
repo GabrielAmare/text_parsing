@@ -99,10 +99,12 @@ class Call(Binary, com=False, sym='(...)'):
             style='filled',
             fillcolor='#fad248'
         )
-        left = self.left.asNode(dot)
-        dot.edge(f"{name}:left", f"{left}:_")
-        right = self.right.asNode(dot)
-        dot.edge(f"{name}:right", f"{right}:_")
+        if self.left:
+            left = self.left.asNode(dot)
+            dot.edge(f"{name}:left", f"{left}:_")
+        if self.right:
+            right = self.right.asNode(dot)
+            dot.edge(f"{name}:right", f"{right}:_")
         return name
 
 

@@ -20,6 +20,8 @@ class Context:
         return lemma_cls(self, *args, **kwargs)
 
     def fabric(self, item: Lemma):
+        if item is None:
+            return None
         if item.name == 'var':
             built = Var(ctx=self, name=item.get_content('name'))
         elif item.name == 'int':

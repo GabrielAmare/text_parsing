@@ -25,7 +25,7 @@ class Lemma:
         if isinstance(key, int):
             return self.items[key]
         elif isinstance(key, str):
-            return self.kwitems[key]
+            return self.kwitems.get(key)
         else:
             raise Exception
 
