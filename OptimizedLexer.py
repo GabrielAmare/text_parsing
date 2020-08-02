@@ -104,5 +104,8 @@ if __name__ == '__main__':
         newline=[('!', '\n')],
         ponct=[('+', '.!?')]
     )
-    for token_type, token_content, start_index in lexer.tokenize("hi I'm a sentence !\nFollowed by another on another line..."):
+    
+    text = "hi I'm a sentence !\nFollowed by another on another line..."
+
+    for token_type, token_content, start_index in lexer.tokenize(text):
         print(f"[{start_index}]{token_type.upper()} `{repr(token_content)[1:-1]}`")
