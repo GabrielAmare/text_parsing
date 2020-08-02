@@ -1,0 +1,38 @@
+digraph {
+	"0x1eaf301f748" [label="{ <_>
+ | { <0> | <1> | <2> | <3> } }" fillcolor="#fad248" shape=record style=filled]
+	"0x1eaf301f5c8" [label=" <left> | <_>= | <right> " fillcolor="#fad248" shape=record style=filled]
+	"0x1eaf301f408" [label="<_>x" fillcolor="#60fa48" shape=record style=filled]
+	"0x1eaf301f448" [label="<_>2" fillcolor="#4894fa" shape=record style=filled]
+	"0x1eaf301f5c8":left -> "0x1eaf301f408":_
+	"0x1eaf301f5c8":right -> "0x1eaf301f448":_
+	"0x1eaf301f748":0 -> "0x1eaf301f5c8":_
+	"0x1eaf301f648" [label=" <left> | <_>= | <right> " fillcolor="#fad248" shape=record style=filled]
+	"0x1eaf301f488" [label="<_>y" fillcolor="#60fa48" shape=record style=filled]
+	"0x1eaf301f508" [label="<_>3" fillcolor="#4894fa" shape=record style=filled]
+	"0x1eaf301f648":left -> "0x1eaf301f488":_
+	"0x1eaf301f648":right -> "0x1eaf301f508":_
+	"0x1eaf301f748":1 -> "0x1eaf301f648":_
+	"0x1eaf301f588" [label=" <left> | <_>= | <right> " fillcolor="#fad248" shape=record style=filled]
+	"0x1eaf301f688" [label="<_>z" fillcolor="#60fa48" shape=record style=filled]
+	"0x1eaf301f608" [label=" <left> | <_>* | <right> " fillcolor="#fad248" shape=record style=filled]
+	"0x1eaf301f408" [label="<_>x" fillcolor="#60fa48" shape=record style=filled]
+	"0x1eaf301f488" [label="<_>y" fillcolor="#60fa48" shape=record style=filled]
+	"0x1eaf301f608":left -> "0x1eaf301f408":_
+	"0x1eaf301f608":right -> "0x1eaf301f488":_
+	"0x1eaf301f588":left -> "0x1eaf301f688":_
+	"0x1eaf301f588":right -> "0x1eaf301f608":_
+	"0x1eaf301f748":2 -> "0x1eaf301f588":_
+	"0x1eaf301f7c8" [label="{ <_>__call__ | { <left> | ( | <right> | ) } }" fillcolor="#fad248" shape=record style=filled]
+	"0x1eaf301f6c8" [label="<_>print" fillcolor="#60fa48" shape=record style=filled]
+	"0x1eaf301f7c8":left -> "0x1eaf301f6c8":_
+	"0x1eaf301f788" [label="{ <_>, | { <0> | <1> | <2> } }" fillcolor="#fad248" shape=record style=filled]
+	"0x1eaf301f408" [label="<_>x" fillcolor="#60fa48" shape=record style=filled]
+	"0x1eaf301f788":0 -> "0x1eaf301f408":_
+	"0x1eaf301f488" [label="<_>y" fillcolor="#60fa48" shape=record style=filled]
+	"0x1eaf301f788":1 -> "0x1eaf301f488":_
+	"0x1eaf301f688" [label="<_>z" fillcolor="#60fa48" shape=record style=filled]
+	"0x1eaf301f788":2 -> "0x1eaf301f688":_
+	"0x1eaf301f7c8":right -> "0x1eaf301f788":_
+	"0x1eaf301f748":3 -> "0x1eaf301f7c8":_
+}
